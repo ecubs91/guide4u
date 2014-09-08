@@ -1,0 +1,44 @@
+<% if current_user %>
+
+<div class="container">
+<span class="txt_style_1">Maths</span></br>
+   Do there exist 2 integers, x and y, such that x<sup>2</sup>+y<sup>2</sup>= 1000 003?</br></br>
+
+<span class="txt_style_1">Biochemistry</span></br>
+      Given that the selectivity filter is lined with carbonyl oxygens, how might K<sup>+</sup> channel allow K<sup>+</sup> through but
+      not Na<sup>+</sup> when Na<sup>+</sup> is smaller?</br></br>
+
+   <span class="txt_style_1">Chemistry</span></br>   
+   Which is more acidic, ethane or ethene?</br></br>
+
+ <span class="txt_style_1">Classics</span></br>
+To what extent can you justify heroism in the Iliad?</br></br>
+
+ <span class="txt_style_1">Economics</span></br>
+There are 8 coins to be divided between A and B. A first makes an offer of how to divide the 
+8 coins between them. If B refuses A’s offer, then now it is B’s turn to make the offer, but 
+this time 4 coins are taken away so that only 4 coins can be divided between them. Again, if 
+A refuses B’s offer then now A can make an offer again, but again the stake is halved to two 
+coins. Once a single coin remains, whoever makes the offer takes the coin. What offer should 
+A make at the beginning? (assuming B is rational, and A knows that B is rational)</br></br>
+
+     <span class="txt_style_1">Geography</span></br>
+       Does ivy growth protect or destroy walls?</br></br>
+
+        <span class="txt_style_1">Law</span></br>
+        If the punishment for parking on double yellow lines were death, and therefore nobody
+did it, would that be a just and effective law?</br></br>
+
+    <span class="txt_style_1">Medicine</span></br>
+    (When given a photograph of an obese mouse and a normal mouse) Why is one mouse fat?</br></br>
+
+     <span class="txt_style_1">Physics</span></br>
+     A ball bearing is flying through space (vacuum and no overall gravitational field). 
+     It heads towards a doughnut, through its centre and out the other side. Draw graphs of 
+     1) speed vs time and 2) acceleration vs time</br></br>
+
+
+
+<% else %>
+Please <%= link_to "sign in", new_user_session_path %> to view more resources offered
+<% end %>

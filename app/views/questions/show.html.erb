@@ -1,0 +1,55 @@
+<div class="container">
+<div class="row">
+  <div class="col-md-9 col-md-offset-1">
+      <p id="notice"><%= notice %></p>
+      <div class="right">  
+        <%= link_to "Post a new question", new_question_path, class: "btn btn-primary" %><br>
+      </div>
+
+      <p>
+        <h3><%= @question.question %></h3>  
+      </p>
+
+      <p>
+        <%= h(@question.text).gsub(/\n/, '<br/>').html_safe %>
+      </p>
+
+      <%= form_for "", :url => create_question_comment_questions_path, :method=>:post do |f| %>
+          <%= f.hidden_field "id", :value => @question.id %>
+          <h4>Post a comment</h4> <%= f.text_area "comment_content", class: "form-control"  %><br>
+          <%= f.submit "Submit", class: "btn btn-primary" %>
+      <% end %>
+
+        <br>
+
+         <h4>Post a comment</h4> <%= f.text_area "comment_content", class: "form-control"  %><br>
+          <%= f.submit "Submit", class: "btn btn-primary" %>
+        <br>
+        <table class="table">
+          <tbody>
+             <% @all_comments.each do |comment| %>
+                <tr>
+                  <td>
+                    <% @user = User.find(comment.user_id) %>
+                    <p>Posted by <b><%= @user.first_name %></b></p>                    
+                    <p><%= h(comment.body).gsub(/\n/, '<br/>').html_safe %> </p>
+                    
+                    <%= form_for "", :url => create_question_comment_reply_questions_path, :method=>:post do |f| %>
+                    <%= f.hidden_field "id", :value => @question.id %>
+                    <%= f.text_area "comment_reply_content", class: "form-control"  %>
+
+         
+             <% end %>
+                  </td>
+                </tr>
+             <% end %>
+          </tbody>
+        </table>      
+      
+
+  </div>
+</div>
+
+
+<%= link_to 'Edit', edit_question_path(@question) %> |
+<%= link_to 'Back', questions_path %>

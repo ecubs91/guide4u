@@ -1,0 +1,6 @@
+<%= form_tag({controller: "messages", action: "create"}, method: :post) do %>
+  <%= text_field_tag :subject %>
+  <%= text_area_tag :body %>
+<%= hidden_field_tag :user,  params[:user] %>
+  <%= submit_tag 'Send email' %>
+<% end %>

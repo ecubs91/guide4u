@@ -1,0 +1,36 @@
+<h1>Listing tutorships</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tutor</th>
+      <th>Student</th>
+      <th>Subject</th>
+      <th>Accepted</th>
+      <th>Starting date</th>
+      <th>Duration</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tutorships.each do |tutorship| %>
+      <tr>
+        <td><%= tutorship.tutor_profile_id %></td>
+        <td><%= tutorship.user_id %></td>
+        <td><%= tutorship.accepted %></td>
+        <td><%= tutorship.starting_date %></td>
+        <td><%= tutorship.duration %></td>
+        <td><%= link_to 'Show', tutorship %></td>
+        <td><%= link_to 'Edit', edit_tutorship_path(tutorship) %></td>
+        <td><%= link_to 'Destroy', tutorship, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Tutorship', new_tutorship_path %>

@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Tutor:</strong>
+  <%= @tutorship.tutor_profile_id %>
+</p>
+
+<p>
+  <strong>Student:</strong>
+  <%= @tutorship.user_id %>
+</p>
+<p>
+  <strong>Accepted:</strong>
+  <%= @tutorship.accepted %>
+</p>
+
+<p>
+  <strong>Starting date:</strong>
+  <%= @tutorship.starting_date %>
+</p>
+
+<p>
+  <strong>Duration:</strong>
+  <%= @tutorship.duration %>
+</p>
+
+<%= link_to 'Edit', edit_tutorship_path(@tutorship) %> |
+<%= link_to 'Back', tutorships_path %>

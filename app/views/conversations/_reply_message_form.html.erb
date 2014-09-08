@@ -1,0 +1,10 @@
+<%= form_tag conversation_path(conversation), :method => :put do %>
+
+   <div >
+    <%= text_area_tag :body, nil,:rows => 6, :cols=> 53 %>
+  </div>
+  <div >
+    <%= submit_tag 'reply', :name => :reply_all %>
+  </div>
+  
+<% end %>

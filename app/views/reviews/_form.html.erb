@@ -1,0 +1,35 @@
+<%= form_for([@tutor_profile, @review]) do |f| %>
+  <% if @review.errors.any? %>
+    <div id="error_explanation" class="alert alert-danger alert-dismissable">
+      <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+      <h4><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h4>
+
+      <ul>
+      <% @review.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div id="star-rating"></div>
+  <div class="form-group">
+    <%= f.label :comment %><br>
+    <%= f.text_area :comment, class: "form-control" %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Submit a Review", class: "btn btn-success" %>
+  </div>
+<% end %>
+
+<script>
+$('#star-rating').raty({
+  starOff: 'https://dl.dropboxusercontent.com/s/pd0ba2om071nkz8/star-off.png',
+  starOn: 'https://dl.dropboxusercontent.com/s/47b8b0is4ku9gji/star-on.png',
+  starHalf: 'https://dl.dropboxusercontent.com/s/2ujeq5cjjbrnva0/star-half.png',
+  halfShow: true,
+  half: true,
+  scoreName: 'review[rating]'
+});
+</script>

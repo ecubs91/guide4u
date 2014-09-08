@@ -1,0 +1,69 @@
+<%= form_for(@tutor_profile, :html => { :multipart => true }) do |f| %>
+  <% if @tutor_profile.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@tutor_profile.errors.count, "error") %> prohibited this tutor_profile from being saved:</h2>
+
+      <ul>
+      <% @tutor_profile.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :university %><br>
+    <%= f.text_area :university, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :degree_subject %><br>
+    <%= f.text_field :degree_subject, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :teaching_subject %><br>
+    <%= f.text_field :teaching_subject, class: "form-control" %>
+  </div>
+   <div class="form-group">
+    <%= f.label :location %><br>
+    <%= f.text_area :location, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :about_myself %><br>
+    <%= f.text_field :about_myself, class: "form-control" %>
+  </div>
+   <div class="form-group">
+    <%= f.label :tutoring_approach %><br>
+    <%= f.text_area :tutoring_approach, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :teaching_experience %><br>
+    <%= f.text_field :teaching_experience, class: "form-control" %>
+  </div>     
+  <div class="form-group">
+    <%= f.label :extracurricular_interests %><br>
+    <%= f.text_area :extracurricular_interests, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :image %><br>
+    <%= f.file_field :image, class: "form-control" %>
+  </div>
+    <div class="actions">
+    <%= f.submit "Create Tutor Profile", class: "btn btn-success" %>
+  </div>
+
+
+  <h1>Bank Account Information</h1>
+
+  <div class="form-group">
+    <%= label_tag :country %>
+    <%= text_field_tag :country, nil, { :name => nil, :'data-stripe' => "country", class: "form-control" } %>
+  </div>
+  <div class="form-group">
+    <%= label_tag :routing_number %>
+    <%= text_field_tag :routing_number, nil, { :name => nil, :'data-stripe' => "routingNumber", class: "form-control" } %>
+  </div>
+  <div class="form-group">
+    <%= label_tag :account_number %>
+    <%= text_field_tag :account_number, nil, { :name => nil, :'data-stripe' => "accountNumber", class: "form-control" } %>
+  </div>
+<% end %>

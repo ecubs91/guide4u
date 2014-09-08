@@ -1,0 +1,14 @@
+<h2> looping through conversation.receipts </h2>
+    <%= content_tag_for(:li, conversation.receipts_for(current_user).order(:created_at => :desc) ) do |receipt| %>
+      <% message = receipt.message %>
+         <% if message.sender == current_user %>
+          <%= link_to 'You', message.sender %>,  received <%= conversation.updated_at.strftime("%a, %m/%e/%Y %I:%M %p") %>
+
+            <%= simple_format h message.body %>
+        <% else %>
+           <%= link_to message.sender.name, message.sender %>, 
+          received, <%= conversation.updated_at.strftime("%a, %m/%e/%Y %I:%M %p") %>
+
+           <%= simple_format h message.body %>
+        <% end %>
+    <% end %>
