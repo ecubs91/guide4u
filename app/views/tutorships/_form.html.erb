@@ -22,8 +22,16 @@
     <%= f.text_field :starting_date %>
   </div>
   <div class="field">
-    <%= f.label :duration %><br>
-    <%= f.text_field :duration %>
+    <%= f.label :hourly_rate %><br>
+    <%= f.number_field :hourly_rate %>
+  </div>
+  <div class="field">
+    <%= f.label :hours_a_week %><br>
+    <%= f.number_field :hours_a_week %>
+  </div>
+  <div class="field">
+    <%= f.label :weeks %><br>
+    <%= f.number_field :weeks %>
   </div>
 
 

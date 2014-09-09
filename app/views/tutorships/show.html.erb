@@ -1,15 +1,6 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Tutor:</strong>
-  <%= @tutorship.tutor_profile_id %>
-</p>
-
-<p>
-  <strong>Student:</strong>
-  <%= @tutorship.user_id %>
-</p>
-<p>
   <strong>Accepted:</strong>
   <%= @tutorship.accepted %>
 </p>
@@ -18,10 +9,22 @@
   <strong>Starting date:</strong>
   <%= @tutorship.starting_date %>
 </p>
+<p>
+  <strong>Hourly Rate:</strong>
+  <%= @tutorship.hourly_rate %>
+</p>
+<p>
+  <strong>hr/week:</strong>
+  <%= @tutorship.hours_a_week %>
+</p>
+<p>
+  <strong>Weeks:</strong>
+  <%= @tutorship.weeks %>
+</p>
 
 <p>
-  <strong>Duration:</strong>
-  <%= @tutorship.duration %>
+  <strong>Tuition Fee:</strong>
+  <%= @tutorship.tuition_fee %>
 </p>
 
 <%= link_to 'Edit', edit_tutorship_path(@tutorship) %> |

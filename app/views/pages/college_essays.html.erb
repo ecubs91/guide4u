@@ -1,6 +1,24 @@
 <% if current_user %>
+<div class="jumbotron">
+  <div class="row">
+  <div class="col-md-8 col-md-offset-2">
+  <h1>College Essays</h1>
+  <h2>of successful US university applicants</h2>
+  <table class="table">
+	<tbody> 
+		<tr>
+			<td><a href="#stanford">Stanford</a></td>	
+		</tr>
+	</tbody>
+</table>
+  </div>
+  </div>
+</div><!-- end of jumbotron -->
+
 <div class="container">
-<p><b>Standford, Economics</b>
+  <div class="row">
+   <div class="col-md-10 col-md-offset-1">
+     <p><a name="stanford"><b>Standford, Economics</b></a>
 </br>
 <i>Tell us what makes Stanford a good place for you.</i>
 </br></br>
@@ -23,7 +41,8 @@ Numeration: Stanford is currently number 1 on my list of colleges. I would love 
 The residuals are sufficiently small, implying a strong correlation!
 </br></br>
 Normally, I’d do some number crunching at this point to find the exact correlation. However, since I have not yet experienced Stanford, I cannot guarantee the randomness of the aforementioned data. To determine the true correlation, I first require a Stanford education.</p>
-
+    </div>
+  </div>
 <% else %>
 Please <%= link_to "sign in", new_user_session_path %> to view more resources offered
 <% end %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140907225634) do
+ActiveRecord::Schema.define(version: 20140908183333) do
 
   create_table "comments", force: true do |t|
     t.integer  "commentable_id",   default: 0
@@ -110,12 +110,6 @@ ActiveRecord::Schema.define(version: 20140907225634) do
     t.integer  "tutor_profile_id"
   end
 
-  create_table "subjects", force: true do |t|
-    t.string   "subject_name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "tutor_profiles", force: true do |t|
     t.integer  "user_id"
     t.string   "university"
@@ -138,12 +132,15 @@ ActiveRecord::Schema.define(version: 20140907225634) do
   create_table "tutorships", force: true do |t|
     t.boolean  "accepted"
     t.string   "starting_date"
-    t.string   "duration"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "created_by_student"
     t.integer  "user_id"
     t.string   "tutor_profile_id"
+    t.decimal  "hourly_rate",        precision: 5, scale: 2
+    t.decimal  "hours_a_week",       precision: 3, scale: 1
+    t.integer  "weeks"
+    t.decimal  "tuition_fee",        precision: 5, scale: 2
   end
 
   create_table "users", force: true do |t|

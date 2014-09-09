@@ -3,8 +3,7 @@ class Tutorship < ActiveRecord::Base
   belongs_to :tutor_profile
   
   
-
-  # scopes defined as class methods
+# scopes defined as class methods
   class << self
 
     def accepted

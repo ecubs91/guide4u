@@ -1,44 +1,56 @@
+</div><!-- end of container from layout/application -->  
+<br><br><br><br>
 <div class="footer">
-      <div class="row">
-        <div class="col-md-3">
-          <h3>Young Tutors</h3>
-          <ul>
-            <li><%= link_to "About Us", pages_about_path %></li>        
-            <li><%= link_to "Terms and Conditions", pages_terms_and_conditions_path %></li>
-          </ul>     
-        </div>    
-        <div class="col-md-3">
-          <h3>Tuition</h3>
-          <ul>
-            <li><%= link_to "School Curriculum & Exams", pages_exams_path %></li>        
-            <li><%= link_to "University Entrace", pages_university_entrance_path %></li>
-                       
-            <li class="divider"></li>
-            <li><%= link_to "Online Tuition", pages_online_tuition_path %></li>            
-            <li class="divider"></li>
-            <li><%= link_to "Services For Schools", pages_services_for_schools_path %></li> 
-          </ul>     
-        </div>  
-        <div class="col-md-3">
-          <h3>Resources</h3>
-          <ul>
-            <li><%= link_to "Personal Statements", pages_personal_statements_path %></li>
-            <li><%= link_to "College Essays", pages_college_essays_path %></li>
-            <li><%= link_to "Oxbridge Interview Questions", pages_oxbridge_interview_questions_path %></li>
-            <li><%= link_to "Suggested Readings", pages_suggested_readings_path %></li>
-          </ul>     
-        </div>  
-        <div class="col-md-3">
-          <h3>follow us:</h3>
-          <a class="facebook" href="http://facebook.com/freewebsitetemplates" target="_blank">facebook</a>    
-          <a class="twitter" href="http://twitter.com/fwtemplates" target="_blank">twitter</a>
-        </div>  
+<div class="row">        
+  <div class="col-md-8 col-md-offset-2">
+    <div class="jumbotron footer">
+      <table>
+        <thead>
+          <tr>
+            <th>Young Tutors</th>
+            <th>Tuition</th>
+            <th>Resources</th>
+            <th>Languages</th>
+          </tr>
+        </thead>    
+        <tbody>
+          <tr>            
+            <td><a href="/pages/about">About</a></td>
+            <td><%= link_to "School Curriculum & Exams", pages_exams_path %>
+            <td><%= link_to "Personal Statements", pages_personal_statements_path %></td>
+            <td><%= link_to "English" %></td>
+          </tr>
+          <tr>
+            <td><%= link_to "Terms and Conditions", pages_terms_and_conditions_path %></td>
+            <td><%= link_to "University Entrace", pages_university_entrance_path %></td>
+            <td><%= link_to "College Essays", pages_college_essays_path %></td>
+            <td><%= link_to "Chinese" %></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><%= link_to "Online Tuition", pages_online_tuition_path %></td>   
+            <td><%= link_to "Oxbridge Interview Questions", pages_oxbridge_interview_questions_path %></td>
+            <td><%= link_to "Korean" %></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><%= link_to "Services for Schools", pages_services_for_schools_path %></td>   
+            <td><%= link_to "Suggested Readings", pages_suggested_readings_path %></td>
+          </tr>
+        </tbody>
+      </table>
+      <br><br>
+      <div class="right">
+        <h5>Young Tutors</h5>
+        <p>Copyright © Young Tutors All Rights Reserved</p>
       </div>
-      <div class="row">
-          <p>Copyright  © Young Tutors All Rights Reserved</p>
+      <div class="left">
+        <div class="fb-like" data-href="http://etsydemo-2016.herokuapp.com/" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
       </div>
+    </div><!-- end of jumbotron -->        
+  </div><!-- end of col-md-6 -->
+</div><!-- end of row -->  
 </div> <!-- end of footer -->
 
-
-
+    
 

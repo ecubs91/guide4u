@@ -1,23 +1,18 @@
+<div class="container">
   <div class="row">
+    <div class="col-md-9 col-md-offset-2">
     <div class="right"> 
       <%= link_to new_tutor_profile_path, class: "btn btn-primary", data: { no_turbolink: true } do %>
           <i class="glyphicon glyphicon-plus"></i> <%= t('post_a_tutor_profile') %>
-          <% end %>
+      <% end %>
+    </div>
     </div>
   </div>
     
 
   <div class="row">
-    <% @enquiries.each do |enquiry| %>
-
-      <div class="row"> 
-            <!-- Category Search -->  
-            <div class="col-md-2">                
-                           
-            </div>
-
-           
-            <div class="col-md-5">
+    <% @enquiries.each do |enquiry| %>          
+            <div class="col-md-7 col-md-offset-2">
 
               <h3><%= enquiry.subject %>
                 <a href="/enquiries/<%= enquiry.id %>"></h3>
@@ -34,10 +29,9 @@
               <!-- only tutors can write proposals, if a user doesn't have tutor profile, redirection to homepage with notification -->
              
            </div>        
-      </div> 
+    
     <% end %>
   </div>
-</div>
   
 <br>
 
@@ -45,15 +39,8 @@
 
 <br>
 
-<% if user_signed_in? %> 
-<%= link_to new_tutor_profile_path, class: "btn btn-primary", data: { no_turbolink: true } do %> 
-    <i class="glyphicon glyphicon-plus"></i> Post a Tutor Profile
-  <% end %>
-<% end %>
-
-<div class="centre">
-  <div class="fb-like" data-href="http://etsydemo-2016.herokuapp.com/" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
-</div>
 
 
-<%= link_to 'New Enquiry', new_enquiry_path %>
+
+
+

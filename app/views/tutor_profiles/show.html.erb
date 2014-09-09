@@ -1,82 +1,97 @@
 <div class="jumbotron tutor">
   <div class="row">
     <div class="tutor_profile info">
-      <div class="col-md-2">
+      <div class="col-md-2 col-md-offset-1">
         <div class="thumbnail"> 
           <a href="/tutor_profiles/<%= @tutor_profile.id %>">
             <div class="image-photo" style="background-image: url('<%= @tutor_profile.image.url %>'); width: 150px; background-size: 100%; height: 150px;">
             </div>
           </a>
         </div>
+        <% if current_user == @tutor_profile.user %>
+          <%= link_to 'Edit', edit_tutor_profile_path(@tutor_profile), class: "btn btn-primary" %>
+        <% end %>
       </div>  
-      <div class="col-md-8">
-        <h3><%= "#{@tutor_profile.user.first_name.capitalize} #{@tutor_profile.user.last_name.capitalize[0]}." %></h3>   
-        <p>University: <%= "#{@tutor_profile.university}" %> &nbsp;|&nbsp; Degree Subject: <%= "#{@tutor_profile.degree_subject}" %> &nbsp;|&nbsp; t('location'): <%= "#{@tutor_profile.location}" %></p>
+      <div class="col-md-5">
+        <h2><b><%= "#{@tutor_profile.user.first_name.capitalize} #{@tutor_profile.user.last_name.capitalize[0]}." %></b></h2>   
+        <p><b>University:</b> <%= "#{@tutor_profile.university}" %> &nbsp;|&nbsp; <b>Degree Subject:</b> <%= "#{@tutor_profile.degree_subject}" %> &nbsp;|&nbsp; <b>Location:</b> <%= "#{@tutor_profile.location}" %></p>
         <p><b>Teaching Subject:</b> <%= "#{@tutor_profile.teaching_subject}" %></p>       
         
 
         <div class="star-rating" data-score= <%= @avg_rating %> ></div>
         <p><%= "#{@reviews.length} reviews" %></p>
-      </div>  
+      </div>
+      <div class="col-md-2">
+        <%= link_to "Message", new_message_path(user: @tutor_profile.user), class: "btn btn-primary" %><br><br>
+        <%= link_to "Enquiry", new_enquiry_path(tutor_profile: @tutor_profile.user), class: "btn btn-primary" %><br><br>
+        <%= link_to "Request this tutor", new_tutorship_path, class: "btn btn-primary", data: { no_turbolink: true } %> 
+      </div>
     </div>
   </div>
 </div>
 
 <div class="container">
 <div class="row"> 
-  <div class="col-md-8">
-    <p><h3>About Myself</h3><%= "#{@tutor_profile.about_myself}" %></p>
-  <p><h3>Tutoring Approach</h3><%= "#{@tutor_profile.tutoring_approach}" %></p>
-  <p><h3>Teaching Experience</h3><%= "#{@tutor_profile.teaching_experience}" %></p>    
-<p><h3>Extracurricular Interests</h3><%= "#{@tutor_profile.extracurricular_interests}" %></p>
+  <div class="col-md-8 col-md-offset-1">
+    <table class="table">
+      <thead>
+      </thead>
+      <tbody>
+        <tr>
+          <td><h3>About Myself</h3><p><%= "#{@tutor_profile.about_myself}" %></p></td>
+        </tr>
+        <tr>
+          <td><h3>Tutoring Approach</h3><p><%= "#{@tutor_profile.tutoring_approach}" %></p></td>
+        </tr>
+        <tr>
+          <td><h3>Teaching Experience</h3><p><%= "#{@tutor_profile.teaching_experience}" %></p></td>
+        </tr>
+        <tr>
+          <td><h3>Extracurricular Interests</h3><p><%= "#{@tutor_profile.extracurricular_interests}" %></p></td>
+        </tr>
+          
+      </tbody>
+    </table>
+          
+
     <br>
-    <div class="centre">
-      
-        
-      <%= link_to "Message", new_message_path(user: @tutor_profile.user), class: "btn btn-primary" %>
-      <%= link_to "Enquiry", new_enquiry_path(tutor_profile: @tutor_profile.user), class: "btn btn-primary" %>
-      <%= link_to "Request this tutor", new_tutorship_path, class: "btn btn-primary", data: { no_turbolink: true } %> 
-          </div>
+
   </div>
 </div>    
 
-<%= link_to t('write_a_review'), new_tutor_profile_review_path(@tutor_profile), class: "btn btn-primary" %>
+  <div class="col-md-8 col-md-offset-1">
+    <%= link_to t('write_a_review'), new_tutor_profile_review_path(@tutor_profile), class: "btn btn-primary" %>
 
-<% if @reviews.blank? %>
-  <h3>No reviews yet. Be the first to write one!</h3>
-<% else %>
-  <table class="table">
-    <thead>
-      <tr>
-        <th class="col-md-3"></th>
-        <th class="col-md-9"></th>
-      </tr>
-    </thead>
+    <% if @reviews.blank? %>
+      <h4>No reviews yet. Be the first to write one!</h4>
+    <% else %>
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="col-md-3"></th>
+            <th class="col-md-9"></th>
+          </tr>
+        </thead>
 
-    <tbody>
-      <% @reviews.each do |review| %>
-        <tr>
-          <td>
-            <h4>
-              <%= "#{review.user.first_name.capitalize} #{review.user.last_name.capitalize[0]}." %>
-            </h4>     
-            <p><%= review.created_at.strftime("%-m/%-d/%y") %></p>      
-          </td>
-          <td>
-            <div class="star-rating" data-score= <%= review.rating %> ></div>
-            <p><%= h(review.comment).gsub(/\n/, '<br/>').html_safe %></p>
-          </td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>  
-<% end %>
-
-<% if current_user == @tutor_profile.user %>
-<%= link_to 'Edit', edit_tutor_profile_path(@tutor_profile), class: "btn btn-link" %> |
-<% end %> 
-<%= link_to 'Back', tutor_profile_path, class: "btn btn-link" %>
-
+        <tbody>
+          <% @reviews.each do |review| %>
+            <tr>
+              <td>
+                <h4>
+                  <%= "#{review.user.first_name.capitalize} #{review.user.last_name.capitalize[0]}." %>
+                </h4>     
+                <p><%= review.created_at.strftime("%-m/%-d/%y") %></p>      
+              </td>
+              <td>
+                <div class="star-rating" data-score= <%= review.rating %> ></div>
+                <p><%= h(review.comment).gsub(/\n/, '<br/>').html_safe %></p>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>  
+    <% end %>
+  </div>
 <script>
 $('.star-rating').raty({
   starOff: 'https://dl.dropboxusercontent.com/s/pd0ba2om071nkz8/star-off.png',

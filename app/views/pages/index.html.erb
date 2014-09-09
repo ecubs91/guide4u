@@ -2,48 +2,49 @@
   <h1 align="center">Discover your potential</h1>
   <h2 align="center">Bridging quality tutors with talented students<br></h2>
   <br><br>
-  <%= form_tag search_tutor_profiles_path, method: :get, class: "center" do %>
-      <p>
-        <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Enter the subject you would like help with" %>
-        <%= submit_tag "Subject Search", name: nil, class: "btn btn-default" %>
-      </p>
-  <% end %>  
+    <div class="row">
+     <div class="col-md-6 col-md-offset-3">
+       <%= form_tag search_tutor_profiles_path, method: :get, class: "center" do %>
+       <%= autocomplete_field_tag :search, params[:search], autocomplete_tutor_profile_teaching_subject_tutor_profiles_path, class: "form-control", placeholder: "Enter the subject you would like help with" %>
+     </div>  
+     <div class="col-md-2">
+       <%= submit_tag "Subject Search", name: nil, class: "btn btn-default" %>
+      <% end %> 
+     </div> 
+    </div>  
 </div>
 
 <div class="container">
 <div class="row">	
-	<div class="col-md-3"></div>
-	<div class="col-md-6">
+	<div class="col-md-6 col-md-offset-3">
 		<h2>Connecting students and tutors</h2>
-
-		<p>
-		Young Tutors is a platform for connecting tutors that can offer academic expertise with students that seek outside school support.</p>
-
+		<p>Young Tutors is a platform for connecting tutors that can offer academic expertise with students that seek outside school support.</p>
+    <img align="center" src="https://dl.dropboxusercontent.com/s/g0hfomxbmseug0c/Main%20page%20flash%20%28tutors%29.JPG" class="img-circle" height="250" width="250">
 		<p>Our aim is to provide the highest quality tutors for talented students</p>
 	</div>
-	<div class="col-md-3"></div>
+</div>
+
+<br><br>
+
+<div class="row">
+	<div class="col-md-5 col-md-offset-1">
+		<h2 class="align: right">Ace your university application</h2>
+		<p class="align: right">With more and more students going on to higher education, university admissions has been increasingly competitive. We believe that speaking to a current undergraduate studying your desired subject at your desired university can be a great first step for your university application process. Read more about university admissions mentorship.</p>
+	</div>
+ 
+
+	<div class="col-md-6">
+      <img class="align: right" src="https://dl.dropboxusercontent.com/s/fammuojpibfhvug/page.jpg" class="img-circle" height="250" width="250">
+				</div>
 </div>
 
 <br><br>
 
 <div class="row">
 	<div class="col-md-6">
-		<h2 class="alignright">Ace your university application</h2>
-		<p class="alignright">With more and more students going on to higher education, university admissions has been increasingly competitive. We believe that speaking to a current undergraduate studying your desired subject at your desired university can be a great first step for your university application process. Read more about university admissions mentorship.</p>
-	</div>
-
-	<div class="col-md-6">
-			<img src="https://dl.dropboxusercontent.com/s/kxzazivq5xyao30/SAM_2694.JPG" class="img-circle" height="200" width="200" >
-	</div>
-</div>
-
-<br><br>
-
-<div class="row">
-	<div class="col-md-6">
-	<img class="alignright" src="https://dl.dropboxusercontent.com/s/tcoqbqa0tjfvqmo/without%20people%203.jpg" class="img-circle" height="200" width="200">
-	</div>
-	<div class="col-md-6">
+    <img src="https://dl.dropboxusercontent.com/s/kxzazivq5xyao30/SAM_2694.JPG" class="img-circle" height="250" width="250" >
+		</div>
+	<div class="col-md-5">
 		<h2>Achieve more with studying less</h2>
 		<p>Studying hard is a necessary part in achieving top grades. However, studying smart can save you much time and effort while still allowing you to achieve top grades. Knowing exactly what to study and memorise can offer efficient learning. 
 	</div>
@@ -59,13 +60,13 @@
 		<h2 class="alignright">Meeting current <br>undergraduates</h2>
 	</div>
 	<div class="col-md-6">
-		<img src="https://dl.dropboxusercontent.com/s/79z41rlv7jne94m/Tutor%206.JPG" class="img-circle" height="200" width="200">				 
+		<img src="https://dl.dropboxusercontent.com/s/79z41rlv7jne94m/Tutor%206.JPG" class="img-circle" height="250" width="250">				 
 	</div>
 </div>
 <br><br>
 <div class="row">
 	<div class="col-md-6">
-		<img class="alignright" src="https://dl.dropboxusercontent.com/s/79z41rlv7jne94m/Tutor%206.JPG" class="img-circle" height="200" width="200">
+		<img class="align:right" src="https://dl.dropboxusercontent.com/s/tzsnlanvv8ivxjg/IMG_7850.JPG" class="img-circle" height="250" width="250">
 	</div>
 	<div class="col-md-6">
 		<h2>Asking questions on our <br>discussion forum</h2>				 

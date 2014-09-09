@@ -13,6 +13,9 @@ User.delete_all
 @b = User.create!(email: 'josh@test.com', password: 'abcdefgh', password_confirmation: 'abcdefgh', :first_name => 'Josh', :last_name => 'Manson')
 @b.save
 
+@c = User.create!(email: 'leesu@test.com', password: 'abcdefgh', password_confirmation: 'abcdefgh', :first_name => 'Leesu', :last_name => 'Jackson')
+@c.save
+
 Mailboxer::Conversation.delete_all
 @con = @a.send_message(@b, 'Hi This is an uppersixth from Wellington College...', 'X has requested tuition on Biology')
 #@b.reply_to_conversation(@con, 'body', 'subject')
@@ -23,10 +26,17 @@ Mailboxer::Conversation.delete_all
 TutorProfile.delete_all
 @d = TutorProfile.create!(university: 'Oxford', degree_subject: 'Biochemistry', teaching_subject: 'biology', user_id: 1)
 @d.save
+@e = TutorProfile.create!(university: 'Cambridge', degree_subject: 'Chemistry', teaching_subject: 'chemistry', user_id: 2)
+@e.save
+@f = TutorProfile.create!(university: 'Harvard', degree_subject: 'Medicine', teaching_subject: 'biology, chemistry', user_id: 3)
+@f.save
 
 Enquiry.delete_all
 @x = Enquiry.create!(subject: 'Biology', level: 'Alevel', location: 'oxford', user_id: 2)
 @x.save
 @y = Enquiry.create!(subject: 'Chemistry', level: 'IB', location: 'london', user_id: 2)
 @y.save
+
+Tutorship.delete_all
+@f = Tutorship.create!(tutor_profile_id: 1, user_id: 2)
 

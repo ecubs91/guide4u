@@ -1,6 +1,6 @@
 <div class="top-bar">
       <div class="container">
-                    
+        <%= link_to "admin", tutorships_path %>
             <div class="pull-right">
                     <ul class="info list-inline hidden-xs">
                          <% if user_signed_in? %>
@@ -9,7 +9,7 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Tuition <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                               <li><%= link_to "Tutor page", tutors_path %></li>                  
-                              <li><%= link_to " Student page", students_path %></li>
+                              <li class="nounderline"><%= link_to " Student page", students_path %></li>
                             </ul>
                           </li>          
                           <li><%= link_to "Inbox", pages_inbox_path %></li>
@@ -28,8 +28,8 @@
                           </li>         
                           
                         <% else %>
-                          <li><%= link_to t('sign_up'), new_user_registration_path %></li>
-                          <li class="hover-color"></i><%= link_to t('sign_in'), new_user_session_path %></li>
+                          <li class="nounderline"><%= link_to t('sign_up'), new_user_registration_path %></li>
+                          <li class="nounderline"></i><%= link_to t('sign_in'), new_user_session_path %></li>
                         <% end %>                        
                     </ul>
             </div>

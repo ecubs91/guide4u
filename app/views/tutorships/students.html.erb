@@ -6,7 +6,6 @@
   <tr>
     <th class="center">Tutor</th>
     <th class="center">Starting Date</th>
-    <th class="center">Duration</th>
     <th class="center">Status</th>
     <th class="center">Payment</th>
     <th class="center">Review</th>
@@ -27,22 +26,23 @@
   tutor_profile = TutorProfile.find(tutorship.tutor_profile_id) 
   user = User.find(tutor_profile.user_id) 
   %>
-        <%= @user.first_name %> </td>
-      <td class="center"><%= tutorship.starting_date%></td>  
-      <td class="center"><%= tutorship.duration %></td>  
+        <%= user.first_name %> </td>
+      <td class="center"><%= tutorship.starting_date%></td>   
       <td class="center">
         Pending<!-- the status has to change depending on time period written in tutorial request form -->
         in process<br><!-- if tutor's status is 'I'm available' and request is made -->
         complete <!-- at the end of tutorship duration -->
       </td>
       <td class="center">
-        Pay Now
+        
+        <%= link_to "Pay Now",  edit_tutorship_path(tutorship) %>
+        
       </td>
       <td class="center">
         write a review <!-- write a review function becomes active if status is complete, direct to new_tutor_review_path where the tutor ID matches otherwise, review field is left blank-->
       </td>
       <td class="center">
-        <%= link_to "Accept",  tutorship_path(tutorship, :accepted => true), :method => :put %>
+         <%= link_to "Accept",  tutorship_path(tutorship), method: :put %>
       </td>
      
 

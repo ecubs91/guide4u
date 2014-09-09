@@ -1,37 +1,30 @@
 <div class="container">
-   <div class="row"> 
-     <%= form_tag search_tutor_profiles_path, method: :get, class: "center" do %>
-      <p>
-        <%= autocomplete_field_tag :search, params[:search], autocomplete_tutor_profile_teaching_subject_tutor_profiles_path, class: "form-control" %>
-        <%= submit_tag "Subject Search", name: nil, class: "btn btn-default" %>
-      </p>
-      <% end %>  
+   <div class="row">
+     <div class="col-md-6 col-md-offset-2">
+       <%= form_tag search_tutor_profiles_path, method: :get, class: "center" do %>
+       <%= autocomplete_field_tag :search, params[:search], autocomplete_tutor_profile_teaching_subject_tutor_profiles_path, class: "form-control", placeholder: "Enter the subject you would like help with" %>
+     </div>  
+     <div class="col-md-2">
+       <%= submit_tag "Subject Search", name: nil, class: "btn btn-default" %>
+      <% end %> 
+     </div> 
     </div>
-  
-  <div class="row">
-    <div class="right"> 
-      <%= link_to new_enquiry_path, class: "btn btn-primary", data: { no_turbolink: true } do %>
-      <i class="glyphicon glyphicon-plus"></i> <%= t('post_a_tutorial_enquiry') %>
-          <% end %>
-    </div>
+  <br>
+  <br>
+
+<div class="row">
+  <div class="col-md-2">
+     <p>Sort by</p>
+       <p>University
+         <ul>
+           <li><%= link_to "Oxford", search_tutor_profiles_path({:university => 'Oxford'}.merge(params)) %></li>                             
+           <li><%= link_to "Cambridge University", search_tutor_profiles_path({:university => 'Cambridge University'}.merge(params)) %></li>         
+         </ul>
+      </p>   
   </div>
-  
-<div class="container-fluid">
-  <div class="row-fluid">
-    <div class="span2">
-                <p>Sort by</p>
-                <p>University
-                  <ul>
-                    <li><%= link_to "Oxford", search_tutor_profiles_path({:university => 'Oxford'}.merge(params)) %></li>
-                                                           
-                    <li><%= link_to "Cambridge University", search_tutor_profiles_path({:university => 'Cambridge'}.merge(params)) %></li>
-                                       
-                  </ul>
-                </p>   
-    </div>
-    <div class="span10">
+  <div class="col-md-10">
+    <% @tutor_profiles.each do |tutor_profile| %>
       <div class="row">
-        <% @tutor_profiles.each do |tutor_profile| %>
             <div class="col-md-3">
                 <a href="/tutor_profiles/<%= tutor_profile.id %>">
                     <div class="image-photo" style="background-image: url('<%= tutor_profile.image.url %>'); width: 150px; background-size: 100%; height: 150px;">
@@ -41,42 +34,21 @@
             <div class="col-md-5">
               <h3><%= "#{tutor_profile.user.first_name.capitalize} #{tutor_profile.user.last_name.capitalize[0]}." %></h3>
               <p><%= t('university', university: tutor_profile.university) %> &nbsp;|&nbsp; <%= t('degree_subject', degree_subject: tutor_profile.degree_subject) %> &nbsp;|&nbsp; <%= t('location', location: tutor_profile.location) %></p>  
-              <p><%= truncate(tutor_profile.about_myself, :length => 275) %></p>
-                     
-              <% if (user_signed_in?) && (current_user == tutor_profile.user) %>
-              <%= link_to 'Edit', edit_tutor_profile_path(tutor_profile), class: "btn btn-link" %>            
-              <%= link_to 'Destroy', tutor_profile, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-link" %> 
-              <% end %>  
+              <p><%= truncate(tutor_profile.about_myself, :length => 275) %></p> 
             </div>
             <div class="col-md-2">
               <%= link_to "Message", class: "btn btn-link" %> 
               <br>
               <%= link_to "Request this tutor", new_enquiry_path, class: "btn btn-primary" %>
-            </div>     
-        <% end %>
-      </div><!-- end of row -->
-    </div><!-- end of span 10 -->
-  </div><!-- end of row-fluid -->
-</div><!-- end of container-fluid -->
-
-
-        
-  
+            </div>  
+      </div>
+    <% end %>
+  </div>
+</div>
+       
 <br>
 
 <%= #will_paginate @tutors, renderer: BootstrapPagination::Rails 
 %>
 
 <br>
-
-<% if user_signed_in? %> 
-  <%= link_to new_enquiry_path, class: "btn btn-primary", data: { no_turbolink: true } do %> 
-    <i class="glyphicon glyphicon-plus"></i> Post a Tutorial Request
-  <% end %>
-<% end %>
-
-<div class="centre">
-  <div class="fb-like" data-href="http://etsydemo-2016.herokuapp.com/" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
-</div>
-  
-

@@ -13,19 +13,45 @@
  *= require_self
  */
 
-.jumbotron {
-  background-color: #1D1D1A;
+@import "bootstrap";
 
+.jumbotron {
+  background-color: #303036;
   h1, h2 {
   font-family: guardian-egyptt, georgia, serif;
+  color: #FFFFFF;
+  padding-left: 10px;
   }
+  h3 {
+  color: #6c767f; 
+  }
+}
+ 
+.tutor {
+  background-color: #FFF9C8;
+  h2 {font-family: lato};
+  p {font-size: 16px;}
+}
+
+.footer {
+  background-color: #303036;
+  margin-bttom: 0px;
+  h5 {color: #6c767f;
+  font-weight: 700;
+  font-size: 15px;
+  padding-top: 5px};
+  
+  p {color: white;
+  font-size: 12px;
+  font-weight: 600;}
 }
 
 
 /*header nav bar
 ____________________*/
 .top-bar{
-  background-color: #FF1919;
+  background-color: #FF4545
+;
 }
 
 .top-bar .info {
@@ -33,19 +59,19 @@ ____________________*/
 }
 
 .top-bar .info li {
-  font-size: 14px;
+  font-size: 12px;
   display: table-cell;
   vertical-align: middle;
-  height: 40px;
-  color:#555;
-  font-weight: 500;
-  font-size: 23px;
+  height: 25px;
+  color: #555;
+  font-weight: 700;
 }
 
 .top-bar .info li a {
   color:#555;
   margin-right: 10px;
 }
+
 
 .top-bar .dropdown-menu {
   background-color: #EFEFEB;
@@ -64,9 +90,11 @@ ____________________*/
 }
 
 
+
 /*bootstrap overrides
 ____________________*/
 .navbar-default {
+  
   background-color: #fff;
   border-color: #eeeeee;
   -webkit-box-shadow: 0 5px 6px -6px #ccc;
@@ -81,14 +109,14 @@ ____________________*/
   text-transform: uppercase;
 }
 
-.navbar-default .navbar-nav>li>a {
-  color: #000;
-  font-size: 17px;
-  font-weight: 800;
+.navbar-default .navbar-nav li a {
+  color: #555;
+  font-size: 15px; 
+  font-weight: 700;
 }
 
-.navbar .navbar-default .navbar-collapse .collapse ul li {
-  font-size: 27px;
+.navbar-default .navbar-nav li a:hover {
+box-shadow: 0 -4px #FF4545 inset;
 }
 
 /*dropdown menu
@@ -129,25 +157,30 @@ ____________________*/
 
 /*footer
 ____________________*/
-.footer {
+table {
   width: 100%;
-  clear: both;
-  margin-top: 40px;
+  background-color:  #303036;
+  table-width: fixed
 }
-
-.footer .row .col-md-3 h3 {
-  font-color: #2D3C49
+th {
+  color: #F8F8F8;
+  font-size: 18px;
+  line-height: 150%;
+  font-family: lato;
+  font-weight: 630
+    
 }
-
-.footer .row .col-md-3 ul {
-  font-color: #2D3C49
+td {
+  line-height: 180%;
 }
-
-.footer col-md-3 ul li {
-  color: #3A4954
+td a {
+  color: #6c767f;
+  text-align: left;
+  font-family: lato;
+  font-weight: 700
+  
 }
-
-.tail {
-  width: 984px;
-  margin: 0 auto;
+td a:hover {
+  color: white ;
+  text-decoration: none
 }

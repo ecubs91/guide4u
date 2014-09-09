@@ -36,6 +36,7 @@ class TutorshipsController < ApplicationController
     # logger.debug("params: #{params.inspect}")
     @tutorship = Tutorship.new(tutorship_params)
     @tutorship.user_id = current_user.id
+    
     @tutorship.tutor_profile_id = params[:tutor_profile_id] #tutor__profile id in the tutorship table equals the tutor__profile_id of the tutor_profile student is on 
     @tutorship.created_by_student = true
     
@@ -54,11 +55,11 @@ class TutorshipsController < ApplicationController
   # PATCH/PUT /tutorships/1.json
   def update
     @tutorship = Tutorship.find(tutorship_params) #saying find(params[:id]) tells rails to allow more parameters than tutorship.id alone
-    @tutorship.accepted = true
-    
+    @tutorship.update(accepted: true)
+   
     respond_to do |format|
-      if @tutorship.update(tutorship_params)
-        format.html { redirect_to @tutorship, notice: 'Tutorship was successfully updated.' }
+      if @tutorship.update(params[:id])
+        format.html { redirect_to @tutorship, notice: 'Tutorship was successfully accepted.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -87,6 +88,6 @@ private
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tutorship_params
-      params.require(:tutorship).permit(:tutor_profile_id, :user_id, :accepted, :created_by_student, :starting_date, :duration)
+      params.require(:tutorship).permit(:tutor_profile_id, :user_id, :accepted, :created_by_student, :starting_date, :hourly_rate, :hours_a_week, :weeks, :tuition_fee)
     end
 end
