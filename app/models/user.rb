@@ -13,23 +13,7 @@ class User < ActiveRecord::Base
   has_many :enquiries, dependent: :destroy
   has_many :questions
   
-    # agreed tutorships where this user is the tutor
-  has_many  :tutorships_as_tutor,
-              ->{ Tutorship.accepted },
-              class_name: "Tutorship",
-  foreign_key: :user_id
 
-  # invites asking this user to be a tutor
-  has_many  :pending_invites_to_be_a_tutor,
-              ->{ Tutorship.pending_invites_from_student },
-              class_name: "Tutorship",
-  foreign_key: :user_id
-
-  # rejected invites asking this user to be a tutor
-  has_many  :rejected_invites_to_be_a_tutor,
-              ->{ Tutorship.rejected_invites_from_student },
-              class_name: "Tutorship",
-  foreign_key: :user_id
 
 
   # User can be a student, a tutor or both and can have both the tuition and tutorial request records 

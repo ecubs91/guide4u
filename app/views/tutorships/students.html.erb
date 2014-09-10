@@ -42,10 +42,8 @@
         write a review <!-- write a review function becomes active if status is complete, direct to new_tutor_review_path where the tutor ID matches otherwise, review field is left blank-->
       </td>
       <td class="center">
-         <%= link_to "Accept",  tutorship_path(tutorship), method: :put %>
+        <%= link_to "Accept",  accept_tutorships_path, method: :put %>
       </td>
-     
-
 
     </tr>
   <% end %>

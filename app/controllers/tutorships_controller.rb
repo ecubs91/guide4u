@@ -1,5 +1,6 @@
 class TutorshipsController < ApplicationController
   before_action :set_tutorship, only: [:show, :edit, :update, :destroy]
+  
 
   def tutors
     @tutorships = Tutorship.all
@@ -33,13 +34,10 @@ class TutorshipsController < ApplicationController
   # POST /tutorships
   # POST /tutorships.json
   def create
-    # logger.debug("params: #{params.inspect}")
     @tutorship = Tutorship.new(tutorship_params)
+    @tutorship.tuition_fee = @tutorship.hourly_rate + @tutorship.hours_a_week
     @tutorship.user_id = current_user.id
-    
     @tutorship.tutor_profile_id = params[:tutor_profile_id] #tutor__profile id in the tutorship table equals the tutor__profile_id of the tutor_profile student is on 
-    @tutorship.created_by_student = true
-    
     respond_to do |format|
       if @tutorship.save
         format.html { redirect_to @tutorship, notice: 'Tutorship was successfully created.' }
@@ -54,11 +52,8 @@ class TutorshipsController < ApplicationController
   # PATCH/PUT /tutorships/1
   # PATCH/PUT /tutorships/1.json
   def update
-    @tutorship = Tutorship.find(tutorship_params) #saying find(params[:id]) tells rails to allow more parameters than tutorship.id alone
-    @tutorship.update(accepted: true)
-   
     respond_to do |format|
-      if @tutorship.update(params[:id])
+      if @tutorship.update(params[:tutor_profile])
         format.html { redirect_to @tutorship, notice: 'Tutorship was successfully accepted.' }
         format.json { head :no_content }
       else
@@ -77,8 +72,22 @@ class TutorshipsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+    def invite_to_tutorship
+    @tutor_profile = User.find(params[:tutor__profile_id] )
+    @user = current_user
+    @enquiry = current_user.enquiries.last
+    @tutor_profile.pending_invites_to_be_a_tutor.create(subject: @enquiry.subject, message: @enquiry.note,  user_id: current_user.id, status: :invited)
+ 
+    redirect_to :tutor_profiles
+  end
 
-
+  def accept_tutorship
+    @tutorship = Tutorship.find(params[:id])
+    accepted_tutorship = @tutorship.update(accepted: true)
+    
+    redirect_to :tutor_profiles    
+  end
   
 private
     # Use callbacks to share common setup or constraints between actions.

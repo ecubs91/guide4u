@@ -2,20 +2,37 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
-h2 {font-family: aktiv-grotesk std;
-  line-height: 150%
+.index {
+  
+  
+    h2 {font-family: aktiv-grotesk std;
+      line-height: 150%
+    }
+    p {	font-size: 19px;
+      line-heigh: 18px;
+      font-family: aktiv-grotesk std;
+      color: #757582
+      }
+    .center {
+      text-align: center;
+    }
+    .col-md-6 .alignleft {
+      float: left;
+    }
+    .col-md-6 .alignright {
+      float: right;
+    }   
+    .col-md-6 {
+      .col-md-offset-3 .center {
+      float: center;
+      }
+    }
+    
+    
 }
-p {	font-size: 19px;
-	line-heigh: 18px;
-  font-family: aktiv-grotesk std;
-  color: #757582
-	}
 
-.col-md-6 .alignleft {
-	float: left;
-}
 
-.col-md-6 .alignright {
-	float: right;
+.terms_and_conditions {
+  p {font-size: 13px;}
 }
+p {font-size: 15px}

@@ -1,7 +1,27 @@
-<h1>Editing tutorship</h1>
-Tutorhsip with .........on .....
-Tuition fe.......
-<%= render 'form' %>
 
-<%= link_to 'Show', @tutorship %> |
-<%= link_to 'Back', tutorships_path %>
+<div class="container">
+<div class="row">
+  <div class="col-md-6 col-md-offset-2">
+    <h1>Payment</h1>
+    <p>I agree to the following charge being made for tutorship I have requested.</p>
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="col-md-6 col-md-offset-2">
+    <p>Tutorship with <% tutor_profile = TutorProfile.find(@tutorship.tutor_profile_id)
+user = User.find(tutor_profile.user_id) %><b style="font-size: 20px"><%= user.first_name %> <%= user.last_name %></b> for tuition fee of <b style="font-size: 20px">£<%= @tutorship.tuition_fee %></b>
+    </p>
+  </div>
+</div>
+<br>
+<%= render 'form' %>
+<br><br>
+<div class="row">
+  <div class="col-md-6 col-md-offset-2">
+    <div class="right">
+    <%= link_to 'Review tutorship before payment', @tutorship, class: "btn btn-primary" %>
+    </div>
+  </div>
+  </div>
+

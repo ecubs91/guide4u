@@ -3,7 +3,8 @@ class TutorProfilesController < ApplicationController
   before_action :set_tutor_profile, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :create, :update, :edit, :destroy]
   before_action :check_user, only: [:edit, :update, :destroy]
-
+  
+  
   # GET /tutor_profiles
   # GET /tutor_profiles.json
   def search

@@ -38,5 +38,5 @@ Enquiry.delete_all
 @y.save
 
 Tutorship.delete_all
-@f = Tutorship.create!(tutor_profile_id: 1, user_id: 2)
+@f = Tutorship.create!(tutor_profile_id: 1, user_id: 2, hourly_rate: 30, hours_a_week: 6, weeks: 4)
 

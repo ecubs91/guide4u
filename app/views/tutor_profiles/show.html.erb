@@ -24,7 +24,7 @@
       <div class="col-md-2">
         <%= link_to "Message", new_message_path(user: @tutor_profile.user), class: "btn btn-primary" %><br><br>
         <%= link_to "Enquiry", new_enquiry_path(tutor_profile: @tutor_profile.user), class: "btn btn-primary" %><br><br>
-        <%= link_to "Request this tutor", new_tutorship_path, class: "btn btn-primary", data: { no_turbolink: true } %> 
+        <%= link_to "Request this tutor", invite_tutorships_path(tutor_profile_id: @tutor_profile.user), class: "btn btn-primary", data: { no_turbolink: true } %> 
       </div>
     </div>
   </div>
@@ -84,6 +84,7 @@
               </td>
               <td>
                 <div class="star-rating" data-score= <%= review.rating %> ></div>
+                <p><%= review.achievement %></p>
                 <p><%= h(review.comment).gsub(/\n/, '<br/>').html_safe %></p>
               </td>
             </tr>

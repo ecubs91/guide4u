@@ -12,15 +12,22 @@
     </div>
   <% end %>
 
-
-  <div id="star-rating"></div>
-  <div class="form-group">
-    <%= f.label :comment %><br>
-    <%= f.text_area :comment, class: "form-control" %>
+<div class="row">
+  <div class="col-md-6 col-md-offset-2">      
+      <div id="star-rating"></div>
+      <div class="form-group">
+        <%= f.label :achievement %><br>
+        <%= f.text_field :achievement, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :comment %><br>
+        <%= f.text_area :comment, class: "form-control" %>
+      </div>
+      <div class="actions">
+        <%= f.submit "Submit a Review", class: "btn btn-success" %>
+      </div>
   </div>
-  <div class="actions">
-    <%= f.submit "Submit a Review", class: "btn btn-success" %>
-  </div>
+</div>
 <% end %>
 
 <script>

@@ -1,7 +1,8 @@
 class Tutorship < ActiveRecord::Base
   belongs_to :user
   belongs_to :tutor_profile
-  
+  validates :terms_of_service, acceptance: true
+
   
 # scopes defined as class methods
   class << self

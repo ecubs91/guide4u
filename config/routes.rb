@@ -3,7 +3,11 @@ Etsydemo::Application.routes.draw do
 
   resources :subjects
 
-  resources :tutorships 
+  resources :tutorships do
+    collection do
+      put :accept_tutorship, as: 'accept'
+    end
+  end
 
   match '/contacts', to: 'contacts#new', via: 'get'
   resources "contacts", only: [:new, :create]
@@ -68,6 +72,8 @@ Etsydemo::Application.routes.draw do
   get "pages/book_a_tutorial"
   get "pages/how_it_works"
   get "pages/terms_and_conditions"
+  get "pages/terms_and_conditions/for_tutors"
+  get "pages/terms_and_conditions/for_students"
   
 
   root 'pages#index'
