@@ -2,9 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.index {
-  
-  
+
+p {font-size: 15px}
+
+.index {  
     h2 {font-family: aktiv-grotesk std;
       line-height: 150%
     }
@@ -27,12 +28,9 @@
       float: center;
       }
     }
-    
-    
 }
-
 
 .terms_and_conditions {
-  p {font-size: 13px;}
+  li {font_size: 13px;}
+  p {font-size: 14px;}
 }
-p {font-size: 15px}

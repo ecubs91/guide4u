@@ -1,16 +1,40 @@
-<div align="center">
-  <h3>Send A message to Us</h3>
-
-  <%= simple_form_for @contact, :html => {:class => 'form-horizontal' } do |f| %>
-    <%= f.input :name, :required => true %>
-    <%= f.input :email, :required => true %>
-    <%= f.input :message, :as => :text, :required => true %>
-    <div class= "hidden">
-      <%= f.input :nickname, :hint => 'Leave this field blank!' %>
+<div class="container">
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="row">
+      <h3 align="center">Send Us a Message</h3>
+      <p>We are happy to answer any queries you have regarding tuition plans and offer introductory consultation on whether the student needs tuition from Young Tutors, how to tailor the tuition to the student needs, how to maximise the use of Young Tutors and any other queries. Please get in touch!</p>
+    </div>  
+    <%= simple_form_for @contact, :html => {:class => 'form-horizontal' } do |f| %>
+      <div class="row">
+          <div class="col-md-4">
+              <div class="form-group">
+                <%= f.label :name %><br>
+                <%= f.text_field :name, :required => true, class: "form-control" %>
+              </div>
+          </div>
+          <div class="col-md-4">
+              <div class="form-group">
+                <%= f.label :email %><br>
+                <%= f.text_field :email, :required => true, class: "form-control" %>
+              </div>
+          </div>
+          <div class="col-md-8">
+              <div class="form-group">
+              <%= f.label :message %><br>
+              <%= f.text_area :message, class: "form-control" %>
+              </div>
+          </div>
     </div>
-    <div>
-      </br>
-      <%= f.button :submit, 'Send message', :class=> "btn btn-primary" %>
-    </div>
+        
+          <div class= "hidden">
+              <%= f.input :nickname, :hint => 'Leave this field blank!' %>
+          </div>
+          <div>
+            </br>
+            <%= f.button :submit, 'Send message', :class=> "btn btn-primary" %>
+          </div>
+      </div>
   <% end %>
+</div>
 </div>

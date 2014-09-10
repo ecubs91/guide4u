@@ -25,8 +25,16 @@
   h3 {
   color: #6c767f; 
   }
+  a {
+  color: #6c767f;
+  font-family: lato;
+  font-weight: 700
+  }
+  a:hover {
+  color: white ;
+  }
 }
- 
+
 .tutor {
   background-color: #FFF9C8;
   h2 {font-family: lato};
@@ -36,10 +44,12 @@
 .footer {
   background-color: #303036;
   margin-bttom: 0px;
-  h5 {color: #6c767f;
-  font-weight: 700;
-  font-size: 15px;
-  padding-top: 5px};
+  h5 {
+    color: #6c767f;
+    font-weight: 700;
+    font-size: 15px;
+    padding-top: 5px
+  };
   
   p {color: white;
   font-size: 12px;
