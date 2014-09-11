@@ -28,6 +28,21 @@ class TutorshipsController < ApplicationController
 
   # GET /tutorships/1/edit
   def edit
+    
+    Stripe.api_key = ENV["STRIPE_API_KEY"]
+    token = params[:stripeToken]
+
+    begin
+      charge = Stripe::Charge.create(
+        :amount => (@tutorship.tuition_fee * 100).floor,
+        :currency => "usd",
+        :card => token
+        )
+      flash[:notice] = "Thanks for booking!"
+    rescue Stripe::CardError => e
+      flash[:danger] = e.message
+    end
+    
   end
 
   
@@ -37,7 +52,7 @@ class TutorshipsController < ApplicationController
     @tutorship = Tutorship.new(tutorship_params)
     @tutorship.tuition_fee = @tutorship.hourly_rate + @tutorship.hours_a_week
     @tutorship.user_id = current_user.id
-    @tutorship.tutor_profile_id = params[:tutor_profile_id] #tutor__profile id in the tutorship table equals the tutor__profile_id of the tutor_profile student is on 
+    @tutorship.tutor_profile_id = @tutor_profile.id #tutor__profile id in the tutorship table equals the tutor__profile_id of the tutor_profile student is on 
     respond_to do |format|
       if @tutorship.save
         format.html { redirect_to @tutorship, notice: 'Tutorship was successfully created.' }

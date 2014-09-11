@@ -74,7 +74,7 @@ Etsydemo::Application.routes.draw do
   get "pages/terms_and_conditions"
   get "pages/terms_and_conditions/for_tutors"
   get "pages/terms_and_conditions/for_students"
-  
+  get "pages/become_a_tutor"
 
   root 'pages#index'
   # The priority is based upon order of creation: first created -> highest priority.
