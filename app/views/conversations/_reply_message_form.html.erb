@@ -1,10 +1,10 @@
 <%= form_tag conversation_path(conversation), :method => :put do %>
 
-   <div >
-    <%= text_area_tag :body, nil,:rows => 6, :cols=> 53 %>
+  <div class="form-group">
+    <%= text_area_tag :body, nil,:rows => 6, :cols=> 53, class: "form-control" %>
   </div>
-  <div >
-    <%= submit_tag 'reply', :name => :reply_all %>
+  <div class="form-group">
+    <%= submit_tag 'reply', :name => :reply_all, class: "btn btn-primary" %>
   </div>
   
 <% end %>

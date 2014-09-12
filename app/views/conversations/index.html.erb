@@ -1,23 +1,26 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+<h2>Inbox</h2>
 
-<h2> Display's last sender's name and last message's subject </h2>
-
-<% @conversations.each do |conversation| %>
-    
- <%= conversation.last_sender.name %>
-     <%= link_to conversation.last_message.subject, conversation_path(conversation) %>
-  <br>
+<table class="table">
+  <thead>
+    <tr>
+      <td>Name</td>
+      <td>Subject</td>
+      <td>Sent Date</td>
+    </tr>
+  </thead>
+  <% @conversations.each do |conversation| %>
+  <tbody>
+    <tr>
+      <td><%= conversation.last_sender.first_name %></td>
+      <td><%= link_to raw(truncate(strip_tags(conversation.last_message.subject), :length => 35)),conversation_path(conversation) %></td>
+      <td><%= conversation.updated_at.strftime("%m/%e/%Y %I:%M %p") %></td>
+    </tr>
+  </tbody>
+     <br>
 <% end %>
-
-<br><br>
-<h3> Display the name of the originator and conversation's subject</h3>
-<br><br>
-<% @conversations.each do |conversation| %>
-    <%= conversation.originator %> , 
-    <%= link_to  raw(truncate(strip_tags(conversation.subject), :length => 15)), conversation_path(conversation) %> ,
- 
-    <%= conversation.updated_at.strftime("%a, %m/%e/%Y %I:%M %p") %>
-  
-    <%= link_to "Delete", {:controller => "conversations", :action => "trash", :id => conversation.id}, :title=> "Move to Trash", :method=>'post', data: { confirm: 'yes?' } %>
-
-<br>
-<% end %>
+</table>
+    </div>
+  </div>
